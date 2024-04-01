@@ -1,10 +1,6 @@
-package com.example.medi_verse.start
+package com.example.medi_verse.Student
 
-import android.text.Layout
-import android.text.style.BackgroundColorSpan
-import android.util.Log
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -15,7 +11,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.ClickableText
-import androidx.compose.material.icons.Icons
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -28,9 +23,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.modifier.modifierLocalConsumer
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
@@ -38,7 +31,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.medi_verse.R
-import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.SpanStyle
@@ -49,7 +41,7 @@ import androidx.compose.ui.text.style.TextDecoration
 @OptIn(ExperimentalMaterial3Api::class)
 @Preview(widthDp = 384, heightDp = 630)
 @Composable
-fun Login() {
+fun StLogin() {
     Box(
         modifier = Modifier
             .fillMaxSize(),
@@ -127,11 +119,11 @@ fun Login() {
                             ), ) {
                         Text(text = "Login")
                     }
+
                     Row (
                         modifier = Modifier.padding(vertical = 8.dp)
                     ){
                         Text(text = "Don't have an Account yet?")
-                        val boldStyle = TextStyle(fontWeight = FontWeight.Bold)
                         val clickableText = "Signup"
                         ClickableText(
                             text = AnnotatedString.Builder(clickableText)

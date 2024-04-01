@@ -1,4 +1,4 @@
-package com.example.medi_verse.start
+package com.example.medi_verse.Student
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -38,7 +38,7 @@ import com.example.medi_verse.R
 @OptIn(ExperimentalMaterial3Api::class)
 @Preview(widthDp = 384, heightDp = 630)
 @Composable
-fun Signup() {
+fun StSignup() {
     Box(
         modifier = Modifier
             .fillMaxSize(),
