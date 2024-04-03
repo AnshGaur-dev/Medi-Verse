@@ -69,8 +69,7 @@ fun RowScope.AddItem(
                 painter = painterResource(id = screen.drawableId),
                 contentDescription = "Navigation Icon",
                 tint = if (currentDestination?.hierarchy?.any { it.route == screen.route } == true) Color.Black else Color.LightGray,
-
-            )
+                )
         },
         selected = currentDestination?.hierarchy?.any {
             it.route == screen.route
