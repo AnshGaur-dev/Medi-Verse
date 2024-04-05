@@ -1,4 +1,4 @@
-package com.example.medi_verse.Student
+package com.example.medi_verse.Student.Nav
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController

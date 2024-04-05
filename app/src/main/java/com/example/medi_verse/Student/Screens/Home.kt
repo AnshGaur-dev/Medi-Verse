@@ -2,12 +2,17 @@ package com.example.medi_verse.Student.Screens
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Icon
 import androidx.compose.material.icons.Icons
@@ -32,6 +37,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.medi_verse.R
 
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -81,20 +87,61 @@ fun Home() {
                     )
                 }
             ) {
-                Column(modifier = Modifier.padding(top=80.dp)) {
                 Text(text = "Current Updates",color = Color.Black,
                     fontSize = 22.sp,
-                    fontFamily = FontFamily.Serif,fontWeight = FontWeight.W200, modifier = Modifier.padding(start = 17.dp))
-                Card (
-                    modifier= Modifier.size(height = 150.dp, width = 210.dp).padding(top=10.dp), shape = RoundedCornerShape(12.dp)
+                    fontFamily = FontFamily.Serif,fontWeight = FontWeight.W200, modifier = Modifier.padding(start = 17.dp, top = 80.dp))
+                Row(
+                    Modifier
+                        .fillMaxWidth()
+                        .padding(top = 100.dp)) {
+                    Card(
+                        modifier = Modifier
+                            .padding(top = 10.dp, start = 10.dp)
+                            .size(height = 150.dp, width = 210.dp),
+                        shape = RoundedCornerShape(12.dp),
+                    ) {
+                    }
+                    Card(
+                        modifier = Modifier
+                            .padding(top = 10.dp, start = 10.dp)
+                            .size(height = 150.dp, width = 210.dp),
+                        shape = RoundedCornerShape(12.dp),
+                    ) {
 
-                ){
+                    }
+                    Card(
+                        modifier = Modifier
+                            .padding(top = 10.dp)
+                            .size(height = 150.dp, width = 210.dp),
+                        shape = RoundedCornerShape(12.dp),
+                    ) {
 
+                    }
+                }
+                Text(text = "Recommendation",fontSize = 22.sp,fontFamily = FontFamily.Serif,fontWeight = FontWeight.W200, modifier = Modifier.padding(top = 270.dp))
+                Spacer(modifier = Modifier.padding(4.dp))
+                Column (modifier = Modifier){
+                    Box(modifier = Modifier
+                        .background(Color(0xFFEEEEEE))
+                        .fillMaxWidth(.4f)
+                        .height(1.dp)
+                    )
+                    Text(text = "ewfewecommendationssssss",fontSize = 22.sp,fontFamily = FontFamily.Serif,fontWeight = FontWeight.W200)
+                    LazyColumn{
+                        item (getDatalist().size){
+
+                        }
+                    }
                 }
             }
-
-            }
-
-
-        }
     }
+}
+data class CardDataType(val newsimg: Int,val headingnews: String,val subnews: String,val clubname:String)
+fun getDatalist():MutableList<CardDataType>{
+    val list = mutableListOf<CardDataType>()
+    list.add(CardDataType(R.drawable.wittyhacks,"Hackathon","Hack is live","ACM"))
+    list.add(CardDataType(R.drawable.wittyhacks,"Hackathon","Hack is live","ACM"))
+
+    return list
+
+}

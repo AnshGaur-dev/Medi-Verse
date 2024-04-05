@@ -1,4 +1,4 @@
-package com.example.medi_verse.Student
+package com.example.medi_verse.Student.LoginSignup
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
