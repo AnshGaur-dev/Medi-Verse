@@ -1,3 +1,4 @@
+
 package com.example.medi_verse.Student.Screens
 
 import android.annotation.SuppressLint
@@ -94,23 +95,23 @@ fun AnnoucementLayout(img: Int, annoucement: String) {
 data class AnnoucementsCustomDatatype(val img:Int,val annoucement:String)
 fun AnnoucementsDataList(): MutableList<AnnoucementsCustomDatatype> {
     val list = mutableListOf<AnnoucementsCustomDatatype>()
-    list.add(AnnoucementsCustomDatatype(R.drawable.annoucementspic,"Placement drive is going on"))
-    list.add(AnnoucementsCustomDatatype(R.drawable.annoucementspic,"75% attendance is mandatory "))
-    list.add(AnnoucementsCustomDatatype(R.drawable.annoucementspic,"MoonStone is postponed"))
-    list.add(AnnoucementsCustomDatatype(R.drawable.annoucementspic,"Students who have below 75% attendance will be detained"))
-    list.add(AnnoucementsCustomDatatype(R.drawable.annoucementspic,"Maintain the decorum of the college do not any illegal activity in campus"))
-    list.add(AnnoucementsCustomDatatype(R.drawable.annoucementspic,"Tomorrow will be holiday on account of republic day"))
-    list.add(AnnoucementsCustomDatatype(R.drawable.annoucementspic,"Third-year college hours are from 10 to 5."))
-    list.add(AnnoucementsCustomDatatype(R.drawable.annoucementspic,"Exams for the current semester will commence from next Monday. Make sure you are well-prepared."))
-    list.add(AnnoucementsCustomDatatype(R.drawable.annoucementspic,"Library hours have been extended for the exam period. Take advantage of this opportunity to study in a quiet environment."))
-    list.add(AnnoucementsCustomDatatype(R.drawable.annoucementspic,"The annual cultural fest 'Verve' is scheduled for next month. Start preparing your performances and exhibits."))
-    list.add(AnnoucementsCustomDatatype(R.drawable.annoucementspic,"The college canteen will remain closed for renovation work starting next week. Alternative arrangements have been made for food services."))
-    list.add(AnnoucementsCustomDatatype(R.drawable.annoucementspic,"An industry expert seminar on 'Future Trends in Technology' will be held this Friday. Don't miss this opportunity to gain insights into the latest developments."))
-    list.add(AnnoucementsCustomDatatype(R.drawable.annoucementspic,"The college sports day is scheduled for next Saturday. Get ready to showcase your athletic talents and team spirit."))
-    list.add(AnnoucementsCustomDatatype(R.drawable.annoucementspic,"A blood donation camp will be organized on campus next week. Your participation can save lives."))
-    list.add(AnnoucementsCustomDatatype(R.drawable.annoucementspic,"The college is hosting a career fair next month. Network with industry professionals and explore job opportunities."))
-    list.add(AnnoucementsCustomDatatype(R.drawable.annoucementspic,"An alumni meet is planned for next weekend. Reconnect with your former classmates and mentors."))
-    list.add(AnnoucementsCustomDatatype(R.drawable.annoucementspic,"The college is organizing a tree plantation drive to promote environmental sustainability. Join us in making a positive impact."))
+    list.add(AnnoucementsCustomDatatype(R.drawable.annoucementshumanpic,"Placement drive is going on"))
+    list.add(AnnoucementsCustomDatatype(R.drawable.annoucementshumanpic,"75% attendance is mandatory "))
+    list.add(AnnoucementsCustomDatatype(R.drawable.annoucementshumanpic,"MoonStone is postponed"))
+    list.add(AnnoucementsCustomDatatype(R.drawable.annoucementshumanpic,"Students who have below 75% attendance will be detained"))
+    list.add(AnnoucementsCustomDatatype(R.drawable.annoucementshumanpic,"Maintain the decorum of the college do not any illegal activity in campus"))
+    list.add(AnnoucementsCustomDatatype(R.drawable.annoucementshumanpic,"Tomorrow will be holiday on account of republic day"))
+    list.add(AnnoucementsCustomDatatype(R.drawable.annoucementshumanpic,"Third-year college hours are from 10 to 5."))
+    list.add(AnnoucementsCustomDatatype(R.drawable.annoucementshumanpic,"Exams for the current semester will commence from next Monday. Make sure you are well-prepared."))
+    list.add(AnnoucementsCustomDatatype(R.drawable.annoucementshumanpic,"Library hours have been extended for the exam period. Take advantage of this opportunity to study in a quiet environment."))
+    list.add(AnnoucementsCustomDatatype(R.drawable.annoucementshumanpic,"The annual cultural fest 'Verve' is scheduled for next month. Start preparing your performances and exhibits."))
+    list.add(AnnoucementsCustomDatatype(R.drawable.annoucementshumanpic,"The college canteen will remain closed for renovation work starting next week. Alternative arrangements have been made for food services."))
+    list.add(AnnoucementsCustomDatatype(R.drawable.annoucementshumanpic,"An industry expert seminar on 'Future Trends in Technology' will be held this Friday. Don't miss this opportunity to gain insights into the latest developments."))
+    list.add(AnnoucementsCustomDatatype(R.drawable.annoucementshumanpic,"The college sports day is scheduled for next Saturday. Get ready to showcase your athletic talents and team spirit."))
+    list.add(AnnoucementsCustomDatatype(R.drawable.annoucementshumanpic,"A blood donation camp will be organized on campus next week. Your participation can save lives."))
+    list.add(AnnoucementsCustomDatatype(R.drawable.annoucementshumanpic,"The college is hosting a career fair next month. Network with industry professionals and explore job opportunities."))
+    list.add(AnnoucementsCustomDatatype(R.drawable.annoucementshumanpic,"An alumni meet is planned for next weekend. Reconnect with your former classmates and mentors."))
+    list.add(AnnoucementsCustomDatatype(R.drawable.annoucementshumanpic,"The college is organizing a tree plantation drive to promote environmental sustainability. Join us in making a positive impact."))
 
     return list
 }

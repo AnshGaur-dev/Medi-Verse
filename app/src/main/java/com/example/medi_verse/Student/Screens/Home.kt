@@ -46,7 +46,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
-import com.android.volley.toolbox.ImageRequest
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn( ExperimentalFoundationApi::class, ExperimentalMaterial3Api::class)
@@ -69,14 +68,14 @@ fun Home() {
                     .fillMaxWidth()
                     .padding(top = 10.dp)
             )
-        Scaffold(
-            modifier = Modifier,
-            topBar = {
-                TopAppBar(
-                    colors = TopAppBarDefaults.smallTopAppBarColors(
-                        containerColor = Color(0xFFEDF2FB),
+            Scaffold(
+                modifier = Modifier,
+                topBar = {
+                    TopAppBar(
+                        colors = TopAppBarDefaults.smallTopAppBarColors(
+                            containerColor = Color(0xFFEDF2FB),
                         ),
-                    title = {
+                        title = {
                             val uservalue= remember { mutableStateOf("") }
                             TextField(
                                 value = uservalue.value,
@@ -85,47 +84,47 @@ fun Home() {
                                 },
                                 label = { Text(text = "Search") },
                                 colors = TextFieldDefaults.textFieldColors(cursorColor = Color.Black,
-                                unfocusedLabelColor = Color.Black,
-                                focusedLabelColor = Color.Black,
-                                unfocusedTextColor = Color.Black,
-                                focusedTextColor = Color.Black,
-                                unfocusedIndicatorColor = Color.Transparent,
-                                focusedIndicatorColor = Color.Transparent,
-                                containerColor = Color.White,
-                            ),
+                                    unfocusedLabelColor = Color.Black,
+                                    focusedLabelColor = Color.Black,
+                                    unfocusedTextColor = Color.Black,
+                                    focusedTextColor = Color.Black,
+                                    unfocusedIndicatorColor = Color.Transparent,
+                                    focusedIndicatorColor = Color.Transparent,
+                                    containerColor = Color.White,
+                                ),
                                 textStyle = TextStyle(color = Color.Black),
                                 shape = RoundedCornerShape(12.dp),
                             )
 
-                    },
-                    navigationIcon = {
-                        IconButton(onClick = { /*ADD SIDE DRAWER */ }) {
-                            Icon(imageVector = Icons.Default.Menu, contentDescription = "Menu Icon",tint = Color.Black)
+                        },
+                        navigationIcon = {
+                            IconButton(onClick = { /*ADD SIDE DRAWER */ }) {
+                                Icon(imageVector = Icons.Default.Menu, contentDescription = "Menu Icon",tint = Color.Black)
+                            }
+                        },
+                        actions = {
+                            IconButton(onClick = { /*TODO*/ }) {
+                                Icon(imageVector = Icons.Default.Notifications, contentDescription = "Search Icon", tint = Color.Black)
+                            }
                         }
-                    },
-                    actions = {
-                        IconButton(onClick = { /*TODO*/ }) {
-                            Icon(imageVector = Icons.Default.Notifications, contentDescription = "Search Icon", tint = Color.Black)
-                        }
-                    }
-                )
+                    )
+                }
+            ){
+                HorizontalPager(
+                    state = horizontalPagerState,
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(top = 60.dp)
+                        .background(Color(0xFFEDF2FB))
+                ) { pageIndex ->
+                    val currentItem = HomeDataList()[pageIndex]
+                    HomeLayout(
+                        imageUrl = currentItem.img,
+                        title = currentItem.title,
+                        subtitle = currentItem.subtitle
+                    )
+                }
             }
-        ){
-            HorizontalPager(
-            state = horizontalPagerState,
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(top = 60.dp)
-                .background(Color(0xFFEDF2FB))
-        ) { pageIndex ->
-            val currentItem = HomeDataList()[pageIndex]
-            HomeLayout(
-                imageUrl = currentItem.img,
-                title = currentItem.title,
-                subtitle = currentItem.subtitle
-            )
-        }
-        }
         }
     }
 }
