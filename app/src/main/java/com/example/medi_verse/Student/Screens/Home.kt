@@ -54,7 +54,6 @@ import com.android.volley.toolbox.ImageRequest
 @Composable
 fun Home() {
     val horizontalPagerState = rememberPagerState(pageCount = { HomeDataList().size })
-
     Box(modifier = Modifier
         .background(Color(0xFFEDF2FB))
         .fillMaxSize()){
