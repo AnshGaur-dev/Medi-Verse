@@ -1,11 +1,14 @@
 package com.example.medi_verse.Student.Screens
 
+import android.content.Context
+import android.widget.Toast
 import androidx.compose.animation.core.animateDp
 import androidx.compose.animation.core.spring
 import androidx.compose.animation.core.updateTransition
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -23,12 +26,21 @@ import androidx.compose.material.TabPosition
 //noinspection UsingMaterialAndMaterial3Libraries
 import androidx.compose.material.TabRowDefaults
 import androidx.compose.material.contentColorFor
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -41,7 +53,7 @@ import com.google.accompanist.pager.PagerState
 import com.google.accompanist.pager.pagerTabIndicatorOffset
 import com.google.accompanist.pager.rememberPagerState
 
-@OptIn(ExperimentalPagerApi::class)
+@OptIn(ExperimentalPagerApi::class, ExperimentalMaterial3Api::class)
 @Composable
 fun Feedback() {
     val pagerState = rememberPagerState()
@@ -83,22 +95,58 @@ fun Feedback() {
                 }
             }
             HorizontalPager(
-                modifier = Modifier.fillMaxSize().background(Color(0xFFEDF2FB)),
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(Color(0xFFEDF2FB)),
                 count = pages.size,
                 state = pagerState,
             ) { page ->
-                Box(Modifier.fillMaxSize()) {
+                Box(Modifier.fillMaxSize(),contentAlignment = Alignment.TopCenter) {
                     var textContent=""
                     if (page==0){
-                        textContent="Hi send your campus related suggestion here"
+                        textContent="Campus related suggestion"
                     }
                     if (page==1){
-                        textContent="Hi send your club related suggestion here"
+                        textContent="Club related suggestion"
                     }
                     if (page==2){
-                        textContent="Hi send your other suggestion here"
+                        textContent="Other suggestion"
                     }
-                    Text(modifier = Modifier.align(Alignment.Center), text = textContent)
+                    Column {
+                        val uservalue= remember { mutableStateOf("") }
+                        TextField(
+                            value = uservalue.value,
+                            onValueChange = {
+                                uservalue.value = it
+                            },
+                            label = { Text(text = textContent) },
+                            colors = TextFieldDefaults.textFieldColors(cursorColor = Color.Black,
+                                unfocusedLabelColor = Color.Black,
+                                focusedLabelColor = Color.Black,
+                                unfocusedTextColor = Color.Black,
+                                focusedTextColor = Color.Black,
+                                unfocusedIndicatorColor = Color.Transparent,
+                                focusedIndicatorColor = Color.Transparent,
+                                containerColor = Color.White,
+                            ),
+                            textStyle = TextStyle(color = Color.Black),
+                            shape = RoundedCornerShape(12.dp),
+                            modifier = Modifier
+                                .padding(top = 140.dp)
+                        )
+                        Button(
+                            onClick = {},
+                            modifier = Modifier
+                                .padding(top = 10.dp).align(Alignment.CenterHorizontally),
+                            colors=ButtonDefaults.buttonColors(
+                                containerColor = Color(0xFF13315C),
+                                contentColor = Color.White,
+                            ),
+                        ) {
+                            Text(text = "Send")
+                        }
+                    }
+
                 }
             }
         }

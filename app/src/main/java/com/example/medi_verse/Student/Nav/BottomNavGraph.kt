@@ -1,5 +1,6 @@
 package com.example.medi_verse.Student.Nav
 
+import android.content.Context
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
