@@ -35,12 +35,12 @@ import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextDecoration
+import androidx.navigation.NavController
 
 
 @OptIn(ExperimentalMaterial3Api::class)
-@Preview(widthDp = 384, heightDp = 630)
 @Composable
-fun Login() {
+fun Login(AppnavController: NavController) {
     Box(
         modifier = Modifier
             .fillMaxSize(),
@@ -110,7 +110,7 @@ fun Login() {
                         shape = RoundedCornerShape(12.dp)
 
                     )
-                    Button(onClick = { /*TODO*/ },
+                    Button(onClick = { AppnavController.navigate(AppScreens.HomeMainScreen.route) },
                         modifier = Modifier.size(width = 150.dp, height = 50.dp),
                         colors= ButtonDefaults.buttonColors(
                         containerColor = Color.Black,
@@ -139,7 +139,7 @@ fun Login() {
                                 .toAnnotatedString(),
                             style = TextStyle(fontWeight = FontWeight.Bold),
                             onClick = {
-
+                                AppnavController.navigate(AppScreens.SignUp.route)
 
                             }
                         )

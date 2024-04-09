@@ -33,11 +33,11 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 
 @OptIn(ExperimentalMaterial3Api::class)
-@Preview(widthDp = 384, heightDp = 630)
 @Composable
-fun StSignup() {
+fun Signup(AppnavController: NavController) {
     Box(
         modifier = Modifier
             .fillMaxSize(),
@@ -150,7 +150,7 @@ fun StSignup() {
                 textStyle = TextStyle(color = Color.Black),
                 shape = RoundedCornerShape(12.dp)
             )
-            Button(onClick = { /*TODO*/ },
+            Button(onClick = { AppnavController.navigate(AppScreens.HomeMainScreen.route) },
                 modifier = Modifier.size(width = 150.dp, height = 50.dp),
                 colors= ButtonDefaults.buttonColors(
                     containerColor = Color.Black,
@@ -178,7 +178,7 @@ fun StSignup() {
                         .toAnnotatedString(),
                     style = TextStyle(fontWeight = FontWeight.Bold),
                     onClick = {
-
+                        AppnavController.navigate(AppScreens.Login.route)
                     }
                 )
             }

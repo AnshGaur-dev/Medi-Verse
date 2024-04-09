@@ -21,11 +21,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.medi_verse.R
 
-@Preview(widthDp = 384, heightDp = 630)
 @Composable
-fun DecisionPage() {
+fun DecisionPage(AppnavController: NavController) {
 Box(modifier = Modifier
     .background(Color.White)
     .fillMaxSize(),
@@ -42,7 +42,7 @@ Box(modifier = Modifier
     ){
         Text(text = "Are you an?", fontFamily = FontFamily.Monospace, fontSize = 25.sp,fontWeight = FontWeight.SemiBold, modifier = Modifier.padding(top = 25.dp) )
 
-            Button(onClick = { /*TODO*/ },
+            Button(onClick = { AppnavController.navigate(AppScreens.Login.route)},
                 modifier = Modifier.size(width = 150.dp, height = 65.dp).padding(top=20.dp),
                 colors= ButtonDefaults.buttonColors(
                     containerColor = Color.Black,

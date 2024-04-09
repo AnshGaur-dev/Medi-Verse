@@ -20,11 +20,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.medi_verse.R
 
-@Preview(widthDp = 384, heightDp = 630)
 @Composable
-fun FirstPage() {
+fun FirstPage(AppnavController: NavController) {
     Box(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.CenterStart,
@@ -45,7 +45,7 @@ fun FirstPage() {
             Text(text = "Connect with campus", fontWeight = FontWeight.W300, color = Color.White.copy(.8f), fontSize = 20.sp, modifier = Modifier.padding(start = 10.dp, top = 3.dp))
         }
         Button(
-            onClick = { /*TODO*/ },
+            onClick = { AppnavController.navigate(AppScreens.Decision.route)},
             modifier = Modifier
                 .size(width = 190.dp, height = 80.dp)
                 .align(Alignment.BottomCenter)
