@@ -65,7 +65,10 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.content.ContextCompat.startActivity
+import androidx.navigation.NavController
+import androidx.navigation.NavHostController
 import coil.request.ImageRequest
+import com.example.medi_verse.AppScreens
 import com.example.medi_verse.R
 import com.example.medi_verse.ui.theme.BackgroundColor
 import kotlinx.coroutines.launch
@@ -74,7 +77,7 @@ import java.net.URLEncoder
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun Home(context: Context) {
+fun Home(context: Context,navController: NavController) {
     val scope= rememberCoroutineScope()
     val drawerState = rememberDrawerState(initialValue = androidx.compose.material3.DrawerValue.Closed)
     val items =
@@ -148,6 +151,10 @@ fun Home(context: Context) {
                             }
                             if (item.label=="Share"){
                                 openWhatsApp(context)
+                                selectedItem=null
+                            }
+                            if (item.label=="Logout"){
+                                navController.navigate(AppScreens.Decision.route)
                                 selectedItem=null
                             }
                             else{

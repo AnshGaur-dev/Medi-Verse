@@ -42,7 +42,7 @@ Box(modifier = Modifier
     ){
         Text(text = "Are you an?", fontFamily = FontFamily.Monospace, fontSize = 25.sp,fontWeight = FontWeight.SemiBold, modifier = Modifier.padding(top = 25.dp) )
 
-            Button(onClick = { AppnavController.navigate(AppScreens.Login.route)},
+            Button(onClick = { AppnavController.navigate(AppScreens.StLogin.route)},
                 modifier = Modifier.size(width = 150.dp, height = 65.dp).padding(top=20.dp),
                 colors= ButtonDefaults.buttonColors(
                     containerColor = Color.Black,
@@ -50,7 +50,7 @@ Box(modifier = Modifier
                 ), ) {
                 Text(text = "Student")
             }
-            Button(onClick = { /*TODO*/ },
+            Button(onClick = {},
                 modifier = Modifier.size(width = 150.dp, height = 65.dp).padding(top=20.dp),
                 colors= ButtonDefaults.buttonColors(
                     containerColor = Color.Black,
@@ -58,7 +58,7 @@ Box(modifier = Modifier
                 ), ) {
                 Text(text = "Club Admin")
             }
-            Button(onClick = { /*TODO*/ },
+            Button(onClick = {  },
                 modifier = Modifier.size(width = 150.dp, height = 65.dp).padding(top=20.dp),
                 colors= ButtonDefaults.buttonColors(
                     containerColor = Color.Black,

@@ -3,27 +3,33 @@ package com.example.medi_verse.Student.StNav
 import com.example.medi_verse.R
 
 
-sealed class BottomBarScreen(
+sealed class HomeBottomBarScreen(
     val route: String,
     val title: String,
     val drawableId: Int
 ) {
-    object Home : BottomBarScreen(
+    object Home : HomeBottomBarScreen(
         route = "home",
         title = "Home",
         drawableId = R.drawable.home
     )
 
-    object Announcements : BottomBarScreen(
+    object Announcements : HomeBottomBarScreen(
         route = "announcements",
         title = "Announcements",
         drawableId = R.drawable.annoucements
     )
 
-    object Feedback : BottomBarScreen(
+    object Feedback : HomeBottomBarScreen(
         route = "feedback",
         title = "Feedback",
         drawableId = R.drawable.feedback
+
+    )
+    object StLogin : HomeBottomBarScreen(
+        route = "StLogin",
+        title = "",
+        drawableId = 0
 
     )
 }

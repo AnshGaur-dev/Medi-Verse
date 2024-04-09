@@ -10,21 +10,20 @@ import com.example.medi_verse.Student.Screens.Feedback
 import com.example.medi_verse.Student.Screens.Home
 
 @Composable
-fun BottomNavGraph(navController: NavHostController, context: Context) {
+fun HomeBottomNavGraph(navController: NavHostController, context: Context) {
     NavHost(navController = navController,
-        startDestination = BottomBarScreen.Home.route ){
-        composable(route = BottomBarScreen.Home.route){
-            Home(context)
+        startDestination = HomeBottomBarScreen.Home.route ){
+        composable(route = HomeBottomBarScreen.Home.route){
+            Home(context,navController= navController)
         }
-        composable(route = BottomBarScreen.Announcements.route){
+        composable(route = HomeBottomBarScreen.Announcements.route){
             Announcements()
         }
-        composable(route = BottomBarScreen.Feedback.route){
+        composable(route = HomeBottomBarScreen.Feedback.route){
             Feedback()
         }
+        composable(route = HomeBottomBarScreen.StLogin.route){
 
-
-
-
+        }
     }
 }

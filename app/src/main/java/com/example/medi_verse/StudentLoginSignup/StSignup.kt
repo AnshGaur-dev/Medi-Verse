@@ -1,4 +1,4 @@
-package com.example.medi_verse
+package com.example.medi_verse.StudentLoginSignup
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -30,10 +30,11 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextDecoration
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.example.medi_verse.AppScreens
+import com.example.medi_verse.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -150,7 +151,7 @@ fun Signup(AppnavController: NavController) {
                 textStyle = TextStyle(color = Color.Black),
                 shape = RoundedCornerShape(12.dp)
             )
-            Button(onClick = { AppnavController.navigate(AppScreens.HomeMainScreen.route) },
+            Button(onClick = { AppnavController.navigate(AppScreens.Decision.route) },
                 modifier = Modifier.size(width = 150.dp, height = 50.dp),
                 colors= ButtonDefaults.buttonColors(
                     containerColor = Color.Black,
@@ -178,7 +179,7 @@ fun Signup(AppnavController: NavController) {
                         .toAnnotatedString(),
                     style = TextStyle(fontWeight = FontWeight.Bold),
                     onClick = {
-                        AppnavController.navigate(AppScreens.Login.route)
+                        AppnavController.navigate(AppScreens.StLogin.route)
                     }
                 )
             }
