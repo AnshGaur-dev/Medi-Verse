@@ -36,7 +36,7 @@ fun DrawerContent() {
     Box(modifier = Modifier
         .fillMaxSize()
         .background(BackgroundColor)){
-        Column(modifier = Modifier.fillMaxSize()) {
+        Column(modifier = Modifier.fillMaxWidth()) {
             Box(modifier = Modifier.background(Color.White), contentAlignment = Alignment.BottomCenter) {
                 Column(
                     modifier = Modifier
