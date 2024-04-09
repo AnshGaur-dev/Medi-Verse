@@ -1,6 +1,9 @@
 package com.example.medi_verse.Student.Screens
 
 import android.annotation.SuppressLint
+import android.content.ActivityNotFoundException
+import android.content.Context
+import android.content.Intent
 import android.widget.EditText
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
@@ -52,6 +55,9 @@ import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import kotlinx.coroutines.launch
 import android.graphics.drawable.Icon
+import android.net.Uri
+import android.util.Log
+import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -62,6 +68,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.material.icons.filled.Email
 import androidx.compose.material3.Icon
 import androidx.compose.material.icons.filled.ExitToApp
 import androidx.compose.material.icons.filled.Phone
@@ -85,34 +92,34 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.material3.DrawerState
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.content.ContextCompat.startActivity
 import coil.request.ImageRequest
 import com.example.medi_verse.R
 import com.example.medi_verse.ui.theme.BackgroundColor
 import kotlinx.coroutines.launch
+import java.net.URLEncoder
 
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
-@OptIn( ExperimentalFoundationApi::class, ExperimentalMaterial3Api::class)
-@Preview(widthDp = 384, heightDp = 630)
 @Composable
-fun Home() {
+fun Home(context: Context) {
     val scope= rememberCoroutineScope()
     val drawerState = rememberDrawerState(initialValue = androidx.compose.material3.DrawerValue.Closed)
     val items =
         listOf(
             DrawerItem(Icons.Default.Share, "Share"),
-            DrawerItem(Icons.Default.Phone, "Contact us"),
+            DrawerItem(Icons.Default.Email, "Mail us"),
             DrawerItem(Icons.Default.ExitToApp, "Logout")
         )
 
-    var selectedItem by remember { mutableStateOf(items[0]) }
+    var selectedItem by remember { mutableStateOf<DrawerItem?>(null) }
     ModalNavigationDrawer(
         drawerState = drawerState,
-        gesturesEnabled = false,
+        gesturesEnabled = true,
         drawerContent = {
             ModalDrawerSheet(
                 modifier = Modifier
-                    .width(300.dp)
+                    .width(280.dp)
                     .fillMaxHeight()
             ) {
                 Box(
@@ -139,7 +146,7 @@ fun Home() {
                             var name = "Noah Walker"
                             val email="NoahWalker02@gmail.com"
                             Text(
-                                text = "$name",
+                                text = name,
                                 color = Color(0xFF13315C),
                                 fontSize = 20.sp,
                                 fontFamily = FontFamily.Monospace,
@@ -147,7 +154,7 @@ fun Home() {
                                 modifier = Modifier.padding(start = 10.dp)
                             )
                             Text(
-                                text = "$email",
+                                text = email,
                                 color = Color(0xFF13315C),
                                 fontSize = 20.sp,
                                 fontFamily = FontFamily.Monospace,
@@ -161,11 +168,22 @@ fun Home() {
                     NavigationDrawerItem(
                         label = { Text(text = item.label) },
                         selected = item == selectedItem,
-                        onClick = {
-                            scope.launch {
-                                drawerState.close()
+                        onClick =
+                        {
+                            if (item.label=="Mail us"){
+                                openGmailApp(context)
+                                selectedItem=null
                             }
-                            selectedItem = item
+                            if (item.label=="Share"){
+                                openWhatsApp(context)
+                                selectedItem=null
+                            }
+                            else{
+                                scope.launch {
+                                    drawerState.close()
+                                }
+                                selectedItem=null
+                            }
                         },
                         icon = { androidx.compose.material3.Icon(imageVector = item.icon, contentDescription = item.label) },
                     )
@@ -261,7 +279,7 @@ fun ScafoldContent(
                 }
             }
         }
-}}
+    }}
 data class HomeCustomDatatype(val img:String,val title:String,val subtitle:String)
 fun HomeDataList(): MutableList<HomeCustomDatatype> {
     val list = mutableListOf<HomeCustomDatatype>()
@@ -318,6 +336,27 @@ fun HomeLayout(
                 .fillMaxWidth()
         )
     }
+}
+fun openGmailApp(context: Context){
+    try {
+        val intent=Intent(Intent.ACTION_SEND)
+        intent.type="vnd.android.cursor.item/email"
+        intent.putExtra(Intent.EXTRA_EMAIL, arrayOf("anshgaur.work@gmail.com"))
+        context.startActivity(intent)
+    }
+    catch (e: ActivityNotFoundException){
+
+    }
+}
+fun openWhatsApp(context: Context) {
+    val appMsg:String="Hey check out our app"+"https://play.google.com/store/apps/details?id=com.example.medi_verse"
+    val intent=Intent(Intent.ACTION_SEND)
+    intent.putExtra((Intent.EXTRA_TEXT),appMsg)
+    intent.type="text/plain"
+    context.startActivity(intent)
+
+
+
 }
 data class DrawerItem(val icon: ImageVector, val label: String)
 

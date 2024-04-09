@@ -1,6 +1,7 @@
 package com.example.medi_verse.Student
 
 import android.annotation.SuppressLint
+import android.content.Context
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
@@ -22,12 +23,12 @@ import com.example.medi_verse.Student.Nav.BottomNavGraph
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun MainScreen() {
+fun MainScreen(context: Context) {
     val navController = rememberNavController()
     Scaffold(
         bottomBar = { BottomBar(navController = navController) }
     ) {
-        BottomNavGraph(navController = navController)
+        BottomNavGraph(navController = navController, context )
     }
 }
 @Composable
