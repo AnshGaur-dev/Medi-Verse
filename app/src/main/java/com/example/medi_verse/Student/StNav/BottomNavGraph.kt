@@ -1,4 +1,4 @@
-package com.example.medi_verse.Student.Nav
+package com.example.medi_verse.Student.StNav
 
 import android.content.Context
 import androidx.compose.runtime.Composable

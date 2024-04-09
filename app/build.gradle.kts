@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+
 }
 
 android {
@@ -33,6 +34,9 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+
+
+
     kotlinOptions {
         jvmTarget = "1.8"
     }
@@ -80,6 +84,7 @@ dependencies {
     implementation("com.google.accompanist:accompanist-pager:0.27.1")
     implementation("com.google.accompanist:accompanist-pager-indicators:0.27.1")
     implementation("androidx.compose.foundation:foundation-android:1.6.5")
+
 
 
 

@@ -18,8 +18,8 @@ import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.example.medi_verse.Student.Nav.BottomBarScreen
-import com.example.medi_verse.Student.Nav.BottomNavGraph
+import com.example.medi_verse.Student.StNav.BottomBarScreen
+import com.example.medi_verse.Student.StNav.BottomNavGraph
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
