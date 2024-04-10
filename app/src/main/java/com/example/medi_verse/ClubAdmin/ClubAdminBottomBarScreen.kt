@@ -1,8 +1,6 @@
 package com.example.medi_verse.ClubAdmin
 
-import android.graphics.drawable.AdaptiveIconDrawable
 import com.example.medi_verse.R
-import com.example.medi_verse.Student.StNav.HomeBottomBarScreen
 
 sealed class ClubAdminBottomBarScreen (
     val route:String,
@@ -17,12 +15,12 @@ sealed class ClubAdminBottomBarScreen (
     object AddPost:ClubAdminBottomBarScreen(
         route = "addpost",
         title = "AddPost",
-        drawableId =R.drawable.addmg
+        drawableId = R.drawable.addicon
     )
     object Feedback:ClubAdminBottomBarScreen(
-        route = "addpost",
+        route = "feedback",
         title = "Feedback",
-        drawableId =R.drawable.addmg
+        drawableId = R.drawable.feedback
     )
 
 
