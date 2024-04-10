@@ -1,4 +1,4 @@
-package com.example.medi_verse.Student.Screens
+package com.example.medi_verse.Student.StScreens
 
 import android.annotation.SuppressLint
 import android.content.ActivityNotFoundException
@@ -46,12 +46,10 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import kotlinx.coroutines.launch
-import androidx.compose.animation.AnimatedContentScope
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.filled.Email
-import androidx.compose.material.icons.filled.ExitToApp
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.material3.ModalDrawerSheet
 import androidx.compose.material3.ModalNavigationDrawer
@@ -62,29 +60,22 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import androidx.core.content.ContextCompat.startActivity
-import androidx.navigation.NavController
-import androidx.navigation.NavHostController
+import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.tooling.preview.Preview
 import coil.request.ImageRequest
-import com.example.medi_verse.AppScreens
 import com.example.medi_verse.R
-import com.example.medi_verse.ui.theme.BackgroundColor
-import kotlinx.coroutines.launch
-import java.net.URLEncoder
 
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun Home(context: Context,navController: NavController) {
+fun StHome(context: Context) {
     val scope= rememberCoroutineScope()
     val drawerState = rememberDrawerState(initialValue = androidx.compose.material3.DrawerValue.Closed)
     val items =
         listOf(
             DrawerItem(Icons.Default.Share, "Share"),
             DrawerItem(Icons.Default.Email, "Mail us"),
-            DrawerItem(Icons.Default.ExitToApp, "Logout")
+            //DrawerItem(Icons.Default.ExitToApp, "Logout")
         )
 
     var selectedItem by remember { mutableStateOf<DrawerItem?>(null) }
@@ -151,10 +142,6 @@ fun Home(context: Context,navController: NavController) {
                             }
                             if (item.label=="Share"){
                                 openWhatsApp(context)
-                                selectedItem=null
-                            }
-                            if (item.label=="Logout"){
-                                navController.navigate(AppScreens.Decision.route)
                                 selectedItem=null
                             }
                             else{
@@ -251,6 +238,7 @@ fun ScafoldContent(
                 ) { pageIndex ->
                     val currentItem = HomeDataList()[pageIndex]
                     HomeLayout(
+                        clubname = currentItem.clubname,
                         imageUrl = currentItem.img,
                         title = currentItem.title,
                         subtitle = currentItem.subtitle
@@ -259,17 +247,18 @@ fun ScafoldContent(
             }
         }
     }}
-data class HomeCustomDatatype(val img:String,val title:String,val subtitle:String)
+data class HomeCustomDatatype(val clubname: String,val img:String,val title:String,val subtitle:String)
 fun HomeDataList(): MutableList<HomeCustomDatatype> {
     val list = mutableListOf<HomeCustomDatatype>()
-    list.add(HomeCustomDatatype("https://images.pexels.com/photos/5109665/pexels-photo-5109665.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1","Beaches","Beaches hold a special place in our hearts. They are ribbons of sand bordering vast expanses of water, beckoning us with promises of relaxation, adventure, and a connection to nature's raw beauty. The rhythmic crash of waves, the caress of warm sand on bare feet, and the salty tang in the air – these sensory experiences create an atmosphere unlike any other.Beaches hold a special place in our hearts. They are ribbons of sand bordering vast expanses of water, beckoning us with promises of relaxation, adventure, and a connection to nature's raw beauty. The rhythmic crash of waves, the caress of warm sand on bare feet, and the salty tang in the air – these sensory e"))
-    list.add(HomeCustomDatatype("https://images.pexels.com/photos/17920141/pexels-photo-17920141/free-photo-of-man-on-paddle-board-on-sea-shore.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1","Surfing","Surfing is a thrilling water sport that involves riding ocean waves on a surfboard. It's a unique blend of athleticism, balance, and connection with nature. Here's a deeper dive into the world of surfing:Beaches hold a special place in our hearts. They are ribbons of sand bordering vast expanses of water, beckoning us with promises of relaxation, adventure, and a connection to nature's raw beauty. The rhythmic crash of waves, the caress of warm sand on bare feet, and the salty tang in the air – these sensory e"))
-    list.add(HomeCustomDatatype("https://images.pexels.com/photos/16333679/pexels-photo-16333679/free-photo-of-boats-in-a-small-marina-with-houses-in-the-background.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1","Houses","Houses are more than just structures; they are shelters, havens, and reflections of the societies that build them. Throughout history, houses have served as essential elements of human civilization, providing protection, fostering communities, and shaping our understanding of home.Beaches hold a special place in our hearts. They are ribbons of sand bordering vast expanses of water, beckoning us with promises of relaxation, adventure, and a connection to nature's raw beauty. The rhythmic crash of waves, the caress of warm sand on bare feet, and the salty tang in the air – these sensory e"))
+    list.add(HomeCustomDatatype("Acm","https://images.pexels.com/photos/5109665/pexels-photo-5109665.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1","Beaches","Beaches hold a special place in our hearts. They are ribbons of sand bordering vast expanses of water, beckoning us with promises of relaxation, adventure, and a connection to nature's raw beauty. The rhythmic crash of waves, the caress of warm sand on bare feet, and the salty tang in the air – these sensory experiences create an atmosphere unlike any other.Beaches hold a special place in our hearts. They are ribbons of sand bordering vast expanses of water, beckoning us with promises of relaxation, adventure, and a connection to nature's raw beauty. The rhythmic crash of waves, the caress of warm sand on bare feet, and the salty tang in the air – these sensory e"))
+    list.add(HomeCustomDatatype("Stic","https://images.pexels.com/photos/17920141/pexels-photo-17920141/free-photo-of-man-on-paddle-board-on-sea-shore.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1","Surfing","Surfing is a thrilling water sport that involves riding ocean waves on a surfboard. It's a unique blend of athleticism, balance, and connection with nature. Here's a deeper dive into the world of surfing:Beaches hold a special place in our hearts. They are ribbons of sand bordering vast expanses of water, beckoning us with promises of relaxation, adventure, and a connection to nature's raw beauty. The rhythmic crash of waves, the caress of warm sand on bare feet, and the salty tang in the air – these sensory e"))
+    list.add(HomeCustomDatatype("Muieee","https://images.pexels.com/photos/16333679/pexels-photo-16333679/free-photo-of-boats-in-a-small-marina-with-houses-in-the-background.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1","Houses","Houses are more than just structures; they are shelters, havens, and reflections of the societies that build them. Throughout history, houses have served as essential elements of human civilization, providing protection, fostering communities, and shaping our understanding of home.Beaches hold a special place in our hearts. They are ribbons of sand bordering vast expanses of water, beckoning us with promises of relaxation, adventure, and a connection to nature's raw beauty. The rhythmic crash of waves, the caress of warm sand on bare feet, and the salty tang in the air – these sensory e"))
     return list
 }
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun HomeLayout(
+    clubname:String,
     imageUrl: String,
     title: String,
     subtitle: String
@@ -279,10 +268,11 @@ fun HomeLayout(
             .verticalScroll(rememberScrollState())
             .fillMaxSize()
     ) {
+       Text(text = clubname,fontSize = 20.sp, modifier = Modifier.padding(start = 25.dp, top = 30.dp), fontWeight = FontWeight.SemiBold)
         AsyncImage(
             modifier = Modifier
                 .fillMaxHeight()
-                .padding(16.dp)
+                .padding(start = 16.dp, bottom = 3.dp, top = 0.dp, end = 16.dp)
                 .clip(RoundedCornerShape(16.dp))
                 .fillMaxSize(),
             model = ImageRequest.Builder(LocalContext.current)

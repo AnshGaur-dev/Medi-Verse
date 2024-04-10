@@ -25,11 +25,10 @@ import com.example.medi_verse.Student.StNav.HomeBottomNavGraph
 @Composable
 fun HomeMainScreen( context: Context) {
     val navController = rememberNavController()
-
     Scaffold(
         bottomBar = { BottomBar(navController = navController) }
     ) {
-        HomeBottomNavGraph(navController = navController, context )
+        HomeBottomNavGraph(navController, context = context)
     }
 }
 @Composable

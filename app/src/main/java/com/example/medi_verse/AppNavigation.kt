@@ -7,8 +7,8 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.medi_verse.Student.HomeMainScreen
 import com.example.medi_verse.Student.StNav.HomeBottomBarScreen
-import com.example.medi_verse.StudentLoginSignup.Signup
-import com.example.medi_verse.StudentLoginSignup.StLogin
+import com.example.medi_verse.Student.StudentLoginSignup.Signup
+import com.example.medi_verse.Student.StudentLoginSignup.StLogin
 
 @Composable
 fun AppNavigation(context: Context) {
@@ -24,7 +24,7 @@ fun AppNavigation(context: Context) {
             StLogin(AppnavController = navController)
         }
         composable(route=AppScreens.HomeMainScreen.route){
-            HomeMainScreen(context)
+            HomeMainScreen(context = context)
         }
         composable(route=AppScreens.StSignUp.route){
             Signup(AppnavController = navController)
