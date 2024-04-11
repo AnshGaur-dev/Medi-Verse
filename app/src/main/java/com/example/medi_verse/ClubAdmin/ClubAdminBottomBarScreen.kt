@@ -15,13 +15,11 @@ sealed class ClubAdminBottomBarScreen (
     object AddPost:ClubAdminBottomBarScreen(
         route = "addpost",
         title = "AddPost",
-        drawableId = R.drawable.addicon
+        drawableId = R.drawable.addbutton
     )
     object Feedback:ClubAdminBottomBarScreen(
         route = "feedback",
         title = "Feedback",
         drawableId = R.drawable.feedback
     )
-
-
 }
