@@ -9,5 +9,8 @@ object StLogin :AppScreens("StLogin")
 object Decision :AppScreens("Decision")
 object HomeMainScreen :AppScreens("HomeMainScreen")
 object StSignUp :AppScreens("Signup")
+object ClubAdSignUp :AppScreens("ClubAdSignUp")
+object ClubAdLogin :AppScreens("ClubAdLogin ")
+object  ClubAdminMainScreen:AppScreens("ClubAdminMainScreen")
 
 }

@@ -5,9 +5,12 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.medi_verse.ClubAdmin.ClubAdLoginSignUp.ClubAdLogin
+import com.example.medi_verse.ClubAdmin.ClubAdLoginSignUp.ClubAdSignup
+import com.example.medi_verse.ClubAdmin.ClubAdminMainScreen
 import com.example.medi_verse.Student.HomeMainScreen
 import com.example.medi_verse.Student.StNav.HomeBottomBarScreen
-import com.example.medi_verse.Student.StudentLoginSignup.Signup
+import com.example.medi_verse.Student.StudentLoginSignup.StSignup
 import com.example.medi_verse.Student.StudentLoginSignup.StLogin
 
 @Composable
@@ -27,7 +30,16 @@ fun AppNavigation(context: Context) {
             HomeMainScreen(context = context)
         }
         composable(route=AppScreens.StSignUp.route){
-            Signup(AppnavController = navController)
+            StSignup(AppnavController = navController)
+        }
+        composable(route=AppScreens.ClubAdSignUp.route){
+            ClubAdSignup(AppnavController = navController)
+        }
+        composable(route=AppScreens.ClubAdLogin.route){
+            ClubAdLogin(AppnavController = navController)
+        }
+        composable(route=AppScreens.ClubAdminMainScreen.route){
+            ClubAdminMainScreen(context)
         }
     }
 }

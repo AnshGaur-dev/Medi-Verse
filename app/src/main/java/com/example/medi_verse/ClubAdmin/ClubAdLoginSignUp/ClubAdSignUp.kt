@@ -1,4 +1,4 @@
-package com.example.medi_verse.Student.StudentLoginSignup
+package com.example.medi_verse.ClubAdmin.ClubAdLoginSignUp
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -36,9 +36,10 @@ import androidx.navigation.NavController
 import com.example.medi_verse.AppScreens
 import com.example.medi_verse.R
 
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun StSignup(AppnavController: NavController) {
+fun ClubAdSignup(AppnavController: NavController) {
     Box(
         modifier = Modifier
             .fillMaxSize(),
@@ -62,7 +63,7 @@ fun StSignup(AppnavController: NavController) {
             val newuserusernamevalue= remember { mutableStateOf("") }
             val newuseremailvalue= remember { mutableStateOf("") }
             val newuserpasswordvalue= remember { mutableStateOf("") }
-            TextField(value =newusernamevalue.value , onValueChange = { newusernamevalue.value=it},label = { Text(text = "Enter name")},
+            TextField(value =newusernamevalue.value , onValueChange = { newusernamevalue.value=it},label = { Text(text = "Enter name") },
                 modifier = Modifier
                     .padding(vertical = 18.dp),
 //                        trailingIcon = {
@@ -75,8 +76,8 @@ fun StSignup(AppnavController: NavController) {
                 colors = TextFieldDefaults.textFieldColors(
                     cursorColor = Color.Black,
                     unfocusedLabelColor = Color.Black,
-                    focusedLabelColor =Color.Black,
-                    unfocusedTextColor =Color.Black,
+                    focusedLabelColor = Color.Black,
+                    unfocusedTextColor = Color.Black,
                     focusedTextColor = Color.Black,
                     unfocusedIndicatorColor = Color.Transparent,
                     focusedIndicatorColor = Color.Transparent,
@@ -85,7 +86,7 @@ fun StSignup(AppnavController: NavController) {
                 textStyle = TextStyle(color = Color.Black),
                 shape = RoundedCornerShape(12.dp)
             )
-            TextField(value =newuserusernamevalue.value , onValueChange = { newuserusernamevalue.value=it},label = { Text(text = "Enter user name")},
+            TextField(value =newuserusernamevalue.value , onValueChange = { newuserusernamevalue.value=it},label = { Text(text = "Enter user name") },
                 modifier = Modifier
                     .padding(vertical = 18.dp),
 //                        trailingIcon = {
@@ -97,8 +98,8 @@ fun StSignup(AppnavController: NavController) {
                 colors = TextFieldDefaults.textFieldColors(
                     cursorColor = Color.Black,
                     unfocusedLabelColor = Color.Black,
-                    focusedLabelColor =Color.Black,
-                    unfocusedTextColor =Color.Black,
+                    focusedLabelColor = Color.Black,
+                    unfocusedTextColor = Color.Black,
                     focusedTextColor = Color.Black,
                     unfocusedIndicatorColor = Color.Transparent,
                     focusedIndicatorColor = Color.Transparent,
@@ -107,7 +108,7 @@ fun StSignup(AppnavController: NavController) {
                 textStyle = TextStyle(color = Color.Black),
                 shape = RoundedCornerShape(12.dp)
             )
-            TextField(value =newuseremailvalue.value , onValueChange = { newuseremailvalue.value=it},label = { Text(text = "Enter email")},
+            TextField(value =newuseremailvalue.value , onValueChange = { newuseremailvalue.value=it},label = { Text(text = "Enter email") },
                 modifier = Modifier
                     .padding(vertical = 18.dp),
 //                        trailingIcon = {
@@ -119,8 +120,8 @@ fun StSignup(AppnavController: NavController) {
                 colors = TextFieldDefaults.textFieldColors(
                     cursorColor = Color.Black,
                     unfocusedLabelColor = Color.Black,
-                    focusedLabelColor =Color.Black,
-                    unfocusedTextColor =Color.Black,
+                    focusedLabelColor = Color.Black,
+                    unfocusedTextColor = Color.Black,
                     focusedTextColor = Color.Black,
                     unfocusedIndicatorColor = Color.Transparent,
                     focusedIndicatorColor = Color.Transparent,
@@ -129,7 +130,7 @@ fun StSignup(AppnavController: NavController) {
                 textStyle = TextStyle(color = Color.Black),
                 shape = RoundedCornerShape(12.dp)
             )
-            TextField(value =newuserpasswordvalue.value , onValueChange = { newuserpasswordvalue.value=it},label = { Text(text = "Enter password")},
+            TextField(value =newuserpasswordvalue.value , onValueChange = { newuserpasswordvalue.value=it},label = { Text(text = "Enter password") },
                 modifier = Modifier
                     .padding(vertical = 18.dp),
 //                        trailingIcon = {
@@ -141,8 +142,8 @@ fun StSignup(AppnavController: NavController) {
                 colors = TextFieldDefaults.textFieldColors(
                     cursorColor = Color.Black,
                     unfocusedLabelColor = Color.Black,
-                    focusedLabelColor =Color.Black,
-                    unfocusedTextColor =Color.Black,
+                    focusedLabelColor = Color.Black,
+                    unfocusedTextColor = Color.Black,
                     focusedTextColor = Color.Black,
                     unfocusedIndicatorColor = Color.Transparent,
                     focusedIndicatorColor = Color.Transparent,
@@ -151,7 +152,7 @@ fun StSignup(AppnavController: NavController) {
                 textStyle = TextStyle(color = Color.Black),
                 shape = RoundedCornerShape(12.dp)
             )
-            Button(onClick = { AppnavController.navigate(AppScreens.HomeMainScreen.route) },
+            Button(onClick = { AppnavController.navigate(AppScreens.ClubAdminMainScreen.route) },
                 modifier = Modifier.size(width = 150.dp, height = 50.dp),
                 colors= ButtonDefaults.buttonColors(
                     containerColor = Color.Black,
@@ -179,7 +180,7 @@ fun StSignup(AppnavController: NavController) {
                         .toAnnotatedString(),
                     style = TextStyle(fontWeight = FontWeight.Bold),
                     onClick = {
-                        AppnavController.navigate(AppScreens.StLogin.route)
+                        AppnavController.navigate(AppScreens.ClubAdLogin.route)
                     }
                 )
             }

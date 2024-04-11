@@ -16,7 +16,7 @@ fun ClubAdminBottomNavGraph(ClubnavController:NavHostController,context: Context
             ClubAdHome(context = context)
         }
         composable(route=ClubAdminBottomBarScreen.AddPost.route){
-            ClubAdAddPosts()
+            ClubAdAddPosts(context)
         }
         composable(route=ClubAdminBottomBarScreen.Feedback.route){
             ClubAdFeedback()

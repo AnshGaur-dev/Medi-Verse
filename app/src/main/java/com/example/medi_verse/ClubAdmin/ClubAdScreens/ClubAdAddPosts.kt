@@ -1,6 +1,8 @@
 package com.example.medi_verse.ClubAdmin.ClubAdScreens
 
+import android.content.Context
 import android.net.Uri
+import android.widget.Toast
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.Image
@@ -43,9 +45,8 @@ import com.example.medi_verse.R
 import com.example.medi_verse.ui.theme.BackgroundColor
 
 @OptIn(ExperimentalMaterial3Api::class)
-@Preview(widthDp = 360, heightDp = 650)
 @Composable
-fun ClubAdAddPosts () {
+fun ClubAdAddPosts (context: Context) {
     Box(modifier = Modifier
         .background(BackgroundColor)
         .fillMaxSize(), contentAlignment = Alignment.TopCenter){
@@ -135,7 +136,7 @@ fun ClubAdAddPosts () {
             Button(
                 modifier = Modifier.background(Color.Transparent),
                 onClick = {
-//                    galleryLauncher.launch("image/*")
+                    Toast.makeText(context, "Photo posted successfully", Toast.LENGTH_SHORT).show()
                 },
                 colors = ButtonDefaults.buttonColors(
                     containerColor = Color.Black,

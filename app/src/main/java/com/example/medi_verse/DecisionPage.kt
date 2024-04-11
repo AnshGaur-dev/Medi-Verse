@@ -50,7 +50,7 @@ Box(modifier = Modifier
                 ), ) {
                 Text(text = "Student")
             }
-            Button(onClick = {},
+            Button(onClick = {AppnavController.navigate(AppScreens.ClubAdLogin.route)},
                 modifier = Modifier.size(width = 150.dp, height = 65.dp).padding(top=20.dp),
                 colors= ButtonDefaults.buttonColors(
                     containerColor = Color.Black,
