@@ -1,4 +1,4 @@
-package com.example.medi_verse
+package com.example.medi_verse.App
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -17,7 +17,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
@@ -30,7 +29,7 @@ fun FirstPage(AppnavController: NavController) {
         contentAlignment = Alignment.CenterStart,
     ){
         Image(
-            painter = painterResource(id = R.drawable.img ),
+            painter = painterResource(id = R.drawable.img),
             contentDescription = "Demo image",
             modifier = Modifier.matchParentSize(),
             contentScale = ContentScale.Crop

@@ -35,7 +35,7 @@ import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.navigation.NavController
-import com.example.medi_verse.AppScreens
+import com.example.medi_verse.App.AppScreens
 import com.example.medi_verse.R
 
 

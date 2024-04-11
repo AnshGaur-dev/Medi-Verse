@@ -1,4 +1,4 @@
-package com.example.medi_verse
+package com.example.medi_verse.App
 
 import android.content.Context
 import androidx.compose.runtime.Composable
@@ -8,8 +8,10 @@ import androidx.navigation.compose.rememberNavController
 import com.example.medi_verse.ClubAdmin.ClubAdLoginSignUp.ClubAdLogin
 import com.example.medi_verse.ClubAdmin.ClubAdLoginSignUp.ClubAdSignup
 import com.example.medi_verse.ClubAdmin.ClubAdminMainScreen
+import com.example.medi_verse.CollegeAdmin.CollegeAdminMainScreen
+import com.example.medi_verse.CollegeAdmin.LoginSignUp.CollegeAdLogin
+import com.example.medi_verse.CollegeAdmin.LoginSignUp.CollegeAdSignup
 import com.example.medi_verse.Student.HomeMainScreen
-import com.example.medi_verse.Student.StNav.HomeBottomBarScreen
 import com.example.medi_verse.Student.StudentLoginSignup.StSignup
 import com.example.medi_verse.Student.StudentLoginSignup.StLogin
 
@@ -17,29 +19,39 @@ import com.example.medi_verse.Student.StudentLoginSignup.StLogin
 fun AppNavigation(context: Context) {
     val navController= rememberNavController()
     NavHost(navController =navController , startDestination = AppScreens.FirstPage.route ){
-        composable(route=AppScreens.FirstPage.route){
+        composable(route= AppScreens.FirstPage.route){
             FirstPage(AppnavController=navController)
         }
-        composable(route=AppScreens.Decision.route){
+        composable(route= AppScreens.Decision.route){
             DecisionPage(AppnavController=navController)
         }
-        composable(route=AppScreens.StLogin.route){
+        composable(route= AppScreens.StLogin.route){
             StLogin(AppnavController = navController)
         }
-        composable(route=AppScreens.HomeMainScreen.route){
+        composable(route= AppScreens.HomeMainScreen.route){
             HomeMainScreen(context = context)
         }
-        composable(route=AppScreens.StSignUp.route){
+        composable(route= AppScreens.StSignUp.route){
             StSignup(AppnavController = navController)
         }
-        composable(route=AppScreens.ClubAdSignUp.route){
+        composable(route= AppScreens.ClubAdSignUp.route){
             ClubAdSignup(AppnavController = navController)
         }
-        composable(route=AppScreens.ClubAdLogin.route){
+        composable(route= AppScreens.ClubAdLogin.route){
             ClubAdLogin(AppnavController = navController)
         }
-        composable(route=AppScreens.ClubAdminMainScreen.route){
+        composable(route= AppScreens.ClubAdminMainScreen.route){
             ClubAdminMainScreen(context)
         }
+        composable(route= AppScreens.CollegeAdminMainScreen.route){
+            CollegeAdminMainScreen(context)
+        }
+        composable(route= AppScreens.CollegeAdLogin.route){
+            CollegeAdLogin(AppnavController = navController)
+        }
+        composable(route= AppScreens.CollegeAdSignup.route){
+            CollegeAdSignup(AppnavController = navController)
+        }
+
     }
 }

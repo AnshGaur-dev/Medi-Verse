@@ -1,4 +1,4 @@
-package com.example.medi_verse.ClubAdmin.ClubAdLoginSignUp
+package com.example.medi_verse.CollegeAdmin.LoginSignUp
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -38,10 +38,10 @@ import androidx.navigation.NavController
 import com.example.medi_verse.App.AppScreens
 import com.example.medi_verse.R
 
-
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ClubAdLogin(AppnavController: NavController) {
+fun CollegeAdLogin(AppnavController: NavController) {
+
     Box(
         modifier = Modifier
             .fillMaxSize(),
@@ -140,7 +140,7 @@ fun ClubAdLogin(AppnavController: NavController) {
                             .toAnnotatedString(),
                         style = TextStyle(fontWeight = FontWeight.Bold),
                         onClick = {
-                            AppnavController.navigate(AppScreens.CollegeAdSignup.route)
+                            AppnavController.navigate(AppScreens.ClubAdSignUp.route)
 
                         }
                     )

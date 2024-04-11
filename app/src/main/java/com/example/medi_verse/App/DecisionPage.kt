@@ -1,4 +1,4 @@
-package com.example.medi_verse
+package com.example.medi_verse.App
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -18,11 +18,11 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.medi_verse.R
+
 
 @Composable
 fun DecisionPage(AppnavController: NavController) {
@@ -58,7 +58,7 @@ Box(modifier = Modifier
                 ), ) {
                 Text(text = "Club Admin")
             }
-            Button(onClick = {  },
+            Button(onClick = {  AppnavController.navigate(AppScreens.CollegeAdLogin.route)},
                 modifier = Modifier.size(width = 150.dp, height = 65.dp).padding(top=20.dp),
                 colors= ButtonDefaults.buttonColors(
                     containerColor = Color.Black,

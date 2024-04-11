@@ -1,4 +1,4 @@
-package com.example.medi_verse.ClubAdmin
+package com.example.medi_verse.CollegeAdmin
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -18,26 +18,26 @@ import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.example.medi_verse.ClubAdmin.ClubAdNav.ClubAdminBottomBarScreen
-import com.example.medi_verse.ClubAdmin.ClubAdNav.ClubAdminBottomNavGraph
+import com.example.medi_verse.CollegeAdmin.CollegeAdNav.CollegeAdBottomBarScreen
+import com.example.medi_verse.CollegeAdmin.CollegeAdNav.CollegeAdBottomNavGraph
 
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun ClubAdminMainScreen(context: Context) {
+fun CollegeAdminMainScreen(context:Context) {
     val navController = rememberNavController()
     Scaffold(
-        bottomBar = { ClubAdminBottomBar(navController = navController) }
+        bottomBar = { CollegeAdminBottomBar(navController = navController) }
     ){
-        ClubAdminBottomNavGraph(ClubnavController = navController,context)
+        CollegeAdBottomNavGraph(CollegenavController = navController,context)
     }
 }
+
 @Composable
-fun ClubAdminBottomBar(navController: NavHostController) {
+fun CollegeAdminBottomBar(navController: NavHostController) {
     val screens = listOf(
-      ClubAdminBottomBarScreen.Home,
-      ClubAdminBottomBarScreen.AddPost,
-      ClubAdminBottomBarScreen.Feedback
+        CollegeAdBottomBarScreen.Home,
+        CollegeAdBottomBarScreen.Announcements
     )
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentDestination = navBackStackEntry?.destination
@@ -54,10 +54,9 @@ fun ClubAdminBottomBar(navController: NavHostController) {
         }
     }
 }
-
 @Composable
 fun RowScope.AddItem(
-    screen: ClubAdminBottomBarScreen,
+    screen: CollegeAdBottomBarScreen,
     currentDestination: NavDestination?,
     navController: NavController
 ) {
